@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pakaian - AZFAZSTORE</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      color: #333;
+      background-color: #f9f9f9;
+    }
+
+    header, footer {
+      background-color: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    h1 {
+      margin: 0;
+    }
+
+    main {
+      padding: 2rem;
+    }
+
+    h2 {
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 0.5rem;
+    }
+
+    .produk-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+
+    article {
+      background-color: white;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      text-align: center;
+    }
+
+    article img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    article h3 {
+      margin-top: 0.8rem;
+      font-size: 1.1rem;
+    }
+
+    article p {
+      margin: 0.5rem 0;
+    }
+
+    .action-buttons {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .btn {
+      padding: 0.6rem 1.2rem;
+      font-size: 0.9rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .keranjang {
+      background-color: #34495e;
+      color: white;
+    }
+
+    .keranjang:hover {
+      background-color: #2c3e50;
+    }
+
+    .beli {
+      background-color: #e67e22;
+      color: white;
+    }
+
+    .beli:hover {
+      background-color: #d35400;
+    }
+
+    .back-link {
+      margin-top: 2rem;
+      display: inline-block;
+      text-decoration: none;
+      color: #2c3e50;
+      font-weight: bold;
+    }
+
+    .daftar-transaksi {
+      margin-top: 3rem;
+    }
+
+    .daftar-transaksi ul {
+      background: white;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+      list-style: none;
+      padding-left: 1.5rem;
+    }
+
+    .daftar-transaksi li {
+      margin-bottom: 0.5rem;
+    }
+
+    @media (max-width: 480px) {
+      main {
+        padding: 1rem;
+      }
+
+      h2 {
+        font-size: 1.3rem;
+      }
+
+      .produk-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>PAKAIAN</h1>
+  </header>
+
+  <main>
+    <h2>Produk Pakaian</h2>
+    <div class="produk-container">
+      <article>
+        <img src="bj1.jpeg" alt="cardigan">
+        <h3>Cardigan Cowo</h3>
+        <p>Bahan katun premium, nyaman dipakai sehari-hari.</p>
+        <p><strong>Rp150.000</strong></p>
+        <div class="action-buttons">
+          <button class="btn keranjang" onclick="tambahKeranjang('Kaos Lengan Pendek')">Keranjang</button>
+          <button class="btn beli" onclick="beliProduk('Kaos Lengan Pendek')">Beli</button>
+        </div>
+      </article>
+      <article>
+        <img src="bj2.jpeg" alt="Kemeja Polos">
+        <h3>Kemeja Polos</h3>
+        <p>Kemeja formal & kasual dengan potongan modern fit.</p>
+        <p><strong>Rp120.000</strong></p>
+        <div class="action-buttons">
+          <button class="btn keranjang" onclick="tambahKeranjang('Kemeja Polos')">Keranjang</button>
+          <button class="btn beli" onclick="beliProduk('Kemeja Polos')">Beli</button>
+        </div>
+      </article>
+      <article>
+        <img src="bj3.jpeg" alt="Hoodie Zipper">
+        <h3>Jaket Tracktop</h3>
+        <p>Hangat, stylish, cocok untuk musim hujan.</p>
+        <p><strong>Rp185.000</strong></p>
+        <div class="action-buttons">
+          <button class="btn keranjang" onclick="tambahKeranjang('Hoodie Zipper')">Keranjang</button>
+          <button class="btn beli" onclick="beliProduk('Hoodie Zipper')">Beli</button>
+        </div>
+      </article>
+    </div>
+
+    <div class="daftar-transaksi">
+      <h2>🛒 Daftar Keranjang</h2>
+      <ul id="daftarKeranjang"></ul>
+
+      <h2>💸 Daftar Pembelian</h2>
+      <ul id="daftarPembelian"></ul>
+    </div>
+
+    <a href="index.html" class="back-link">← Kembali ke Beranda</a>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 AZFAZSTORE</p>
+  </footer>
+
+  <script>
+    function tambahKeranjang(produk) {
+      const ul = document.getElementById("daftarKeranjang");
+      const li = document.createElement("li");
+      li.textContent = produk;
+      ul.appendChild(li);
+      alert(produk + " telah ditambahkan ke keranjang!");
+    }
+
+    function beliProduk(produk) {
+      const ul = document.getElementById("daftarPembelian");
+      const li = document.createElement("li");
+      li.textContent = produk;
+      ul.appendChild(li);
+      alert("Terima kasih! Anda telah membeli " + produk);
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AZFAZSTORE</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <h1>AZFAZSTORE</h1>
+    <a href="#" class="cart-icon">🛒</a>
+  </header>
+
+  <nav>
+    <a href="#Beranda">Beranda</a>
+    <a href="#Produk">Produk Terbaru</a>
+    <a href="#Kategori">Kategori</a>
+    <a href="#Kontak">Kontak</a>
+  </nav>
+
+  <main>
+
+    <section id="Beranda" class="full-width">
+      <h2>SELAMAT DATANG DI AZFAZSTORE!</h2>
+      <p>Kami menyediakan berbagai produk fashion dan aksesoris pilihan. Nikmati pengalaman belanja online yang mudah, cepat, dan aman bersama kami.</p>
+    </section>
+
+    <section id="Produk" class="full-width">
+      <h2>Produk Terbaru</h2>
+      <div class="produk-container">
+        <article id="Pakaian">
+          <img src="kaos.jpg" alt="Kaos Polo">
+          <h3>Kaos Polo</h3>
+          <p>Kaos nyaman untuk sehari-hari.</p>
+          <p><strong>Rp65.000</strong></p>
+          <div class="action-buttons">
+            <button class="btn keranjang" onclick="tambahKeranjang('Kaos Polo')">Keranjang</button>
+            <button class="btn beli" onclick="beliProduk('Kaos Polo')">Beli</button>
+          </div>
+        </article>
+        <article id="Sepatu">
+          <img src="sepatu.jpg" alt="Sepatu Sneakers">
+          <h3>Sepatu Sneakers</h3>
+          <p>Stylish dan cocok untuk segala gaya.</p>
+          <p><strong>Rp250.000</strong></p>
+          <div class="action-buttons">
+            <button class="btn keranjang" onclick="tambahKeranjang('Sepatu Sneakers')">Keranjang</button>
+            <button class="btn beli" onclick="beliProduk('Sepatu Sneakers')">Beli</button>
+          </div>
+        </article>
+        <article id="Aksesoris">
+          <img src="jam.jpg" alt="Jam Tangan Sport">
+          <h3>Jam Tangan Sport</h3>
+          <p>Tahan air dan cocok untuk olahraga.</p>
+          <p><strong>Rp1.180.000</strong></p>
+          <div class="action-buttons">
+            <button class="btn keranjang" onclick="tambahKeranjang('Jam Tangan Sport')">Keranjang</button>
+            <button class="btn beli" onclick="beliProduk('Jam Tangan Sport')">Beli</button>
+          </div>
+        </article>
+        <article id="Tas">
+          <img src="tas.jpg" alt="Tas Ransel Kulit">
+          <h3>Tas Ransel Kulit</h3>
+          <p>Kapasitas besar dan tahan lama.</p>
+          <p><strong>Rp320.000</strong></p>
+          <div class="action-buttons">
+            <button class="btn keranjang" onclick="tambahKeranjang('Tas Ransel Kulit')">Keranjang</button>
+            <button class="btn beli" onclick="beliProduk('Tas Ransel Kulit')">Beli</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="full-width">
+      <h2>Daftar Keranjang & Pembelian</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 2rem;">
+        <div>
+          <h3>Keranjang</h3>
+          <ul id="list-keranjang"></ul>
+        </div>
+        <div>
+          <h3>Pembelian</h3>
+          <ul id="list-pembelian"></ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="Kategori" class="full-width">
+      <h2>Kategori</h2>
+      <div class="kategori-container">
+        <div class="kategori-box"><a href="pakaian.html">Pakaian</a></div>
+        <div class="kategori-box"><a href="Aksesoris.html">Aksesoris</a></div>
+        <div class="kategori-box"><a href="Tas.html">Tas</a></div>
+        <div class="kategori-box"><a href="Sepatu.html">Sepatu</a></div>
+      </div>
+    </section>
+
+    <section id="Kontak" class="full-width">
+      <h2>Kontak Kami</h2>
+      <p>📞 WhatsApp: 0815-6463-3026</p>
+      <p>📧 Email: azfazstore@gmail.com</p>
+      <p>📍 Alamat: BANDUNG</p>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 AZFAZSTORE. Semua hak dilindungi undang-undang.</p>
+  </footer>
+
+  <script>
+    const hargaProduk = {
+      "Kaos Polo": 65000,
+      "Sepatu Sneakers": 250000,
+      "Jam Tangan Sport": 1180000,
+      "Tas Ransel Kulit": 320000
+    };
+
+    function tambahKeranjang(produk) {
+      const harga = hargaProduk[produk];
+      const list = document.getElementById("list-keranjang");
+      const item = document.createElement("li");
+      item.textContent = `${produk} - Rp${harga.toLocaleString('id-ID')}`;
+      list.appendChild(item);
+      alert(`${produk} telah ditambahkan ke keranjang!`);
+    }
+
+    function beliProduk(produk) {
+      const harga = hargaProduk[produk];
+      const list = document.getElementById("list-pembelian");
+      const item = document.createElement("li");
+      item.textContent = `${produk} - Rp${harga.toLocaleString('id-ID')}`;
+      list.appendChild(item);
+      alert("Terima kasih! Anda telah membeli " + produk);
+    }
+  </script>
+
+</body>
+</html>
